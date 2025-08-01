@@ -1,0 +1,39 @@
+﻿@model Teacher
+
+<h2>Edit Teacher</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="TeacherId" />
+
+    <div class="form-group">
+        <label asp-for="TeacherFName"></label>
+        <input asp-for="TeacherFName" class="form-control" />
+        <span asp-validation-for="TeacherFName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TeacherLName"></label>
+        <input asp-for="TeacherLName" class="form-control" />
+        <span asp-validation-for="TeacherLName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HireDate"></label>
+        <input asp-for="HireDate" type="date" class="form-control" />
+        <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EmployeeNumber"></label>
+        <input asp-for="EmployeeNumber" class="form-control" />
+        <span asp-validation-for="EmployeeNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "TeacherPage")'">
+        Cancel
+    </button>
+
+</form>

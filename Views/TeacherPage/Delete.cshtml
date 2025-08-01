@@ -1,0 +1,21 @@
+﻿@model Teacher
+
+<h2>Delete Teacher</h2>
+
+<h4 class="text-danger">Are you sure you want to delete this teacher?</h4>
+
+<div class="mb-3">
+    <strong>Name:</strong> @Model.TeacherFName @Model.TeacherLName <br />
+    <strong>Employee Number:</strong> @Model.EmployeeNumber <br />
+    <strong>Hire Date:</strong> @Model.HireDate?.ToString("yyyy-MM-dd") <br />
+</div>
+<br/>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="TeacherId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "TeacherPage")'">
+        Cancel
+    </button>
+
+</form>
