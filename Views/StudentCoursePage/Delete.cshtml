@@ -1,0 +1,16 @@
+﻿@model AnkitKumar_SchoolApp.Models.StudentCourse
+
+<h2>Delete Student Course</h2>
+
+<h4 class="text-danger">Are you sure you want to delete this enrollment?</h4>
+
+<div class="mb-3">
+    <strong>Student ID:</strong> @Model.StudentId <br />
+    <strong>Course ID:</strong> @Model.CourseId <br />
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="StudentXCourseId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "StudentCoursePage")'">Cancel</button>
+</form>

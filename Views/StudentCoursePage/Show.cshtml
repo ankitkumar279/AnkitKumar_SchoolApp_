@@ -1,0 +1,11 @@
+﻿@model AnkitKumar_SchoolApp.Models.StudentCourse
+
+<h2>Student Course Details</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.StudentXCourseId</p>
+    <p><strong>Student ID:</strong> @Model.StudentId</p>
+    <p><strong>Course ID:</strong> @Model.CourseId</p>
+</div>
+
+<a class="btn btn-secondary" href="@Url.Action("List", "StudentCoursePage")">Back to List</a>

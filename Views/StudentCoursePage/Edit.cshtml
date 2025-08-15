@@ -1,0 +1,39 @@
+﻿@model AnkitKumar_SchoolApp.Models.StudentCourse
+
+@{
+    ViewData["Title"] = "Edit Student Course";
+}
+
+<h2>Edit Student Course</h2>
+
+<form asp-controller="StudentCoursePage" asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="StudentXCourseId" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="StudentId"></label>
+        <select asp-for="StudentId" class="form-control" asp-items="ViewBag.Students">
+            <option value="">-- Select Student --</option>  <!-- empty is ok now because nullable -->
+        </select>
+        <span asp-validation-for="StudentId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CourseId"></label>
+        <select asp-for="CourseId" class="form-control" asp-items="ViewBag.Courses">
+            <option value="">-- Select Course --</option>
+        </select>
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+
+
+    <br />
+    <button type="submit" class="btn btn-success">Save</button>
+    <a class="btn btn-secondary" href="@Url.Action("List", "StudentCoursePage")">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

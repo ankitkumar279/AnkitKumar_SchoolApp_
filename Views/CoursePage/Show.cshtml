@@ -1,0 +1,14 @@
+﻿@model AnkitKumar_SchoolApp.Models.Course
+
+<h2>Course Details</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.CourseId</p>
+    <p><strong>Course Code:</strong> @Model.CourseCode</p>
+    <p><strong>Course Name:</strong> @Model.CourseName</p>
+    <p><strong>Teacher ID:</strong> @Model.TeacherId</p>
+    <p><strong>Start Date:</strong> @Model.StartDate?.ToString("yyyy-MM-dd")</p>
+    <p><strong>Finish Date:</strong> @Model.FinishDate?.ToString("yyyy-MM-dd")</p>
+</div>
+
+<a class="btn btn-secondary" href="@Url.Action("List", "CoursePage")">Back to List</a>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AnkitKumar_SchoolApp.Models.Student>
+
+<h2>Students List</h2>
+
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Student ID</th>
+            <th>Student Number</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Enrol Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.StudentId</td>
+                <td>@student.StudentNumber</td>
+                <td>@student.StudentFName</td>
+                <td>@student.StudentLName</td>
+                <td>@student.EnrolDate?.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="@Url.Action("Show", "StudentPage", new { id = student.StudentId })">View</a>
+                    <a class="btn btn-warning btn-sm" href="@Url.Action("Edit", "StudentPage", new { id = student.StudentId })">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "StudentPage", new { id = student.StudentId })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="d-flex gap-2">
+    <a class="btn btn-success" href="@Url.Action("Create", "StudentPage")">Add New Student</a>
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Home")">Back</a>
+</div>

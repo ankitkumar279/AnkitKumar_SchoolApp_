@@ -1,0 +1,13 @@
+﻿@model AnkitKumar_SchoolApp.Models.Student
+
+<h2>Student Details</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.StudentId</p>
+    <p><strong>Student Number:</strong> @Model.StudentNumber</p>
+    <p><strong>First Name:</strong> @Model.StudentFName</p>
+    <p><strong>Last Name:</strong> @Model.StudentLName</p>
+    <p><strong>Enrol Date:</strong> @Model.EnrolDate?.ToString("yyyy-MM-dd")</p>
+</div>
+
+<a class="btn btn-secondary" href="@Url.Action("List", "StudentPage")">Back to List</a>

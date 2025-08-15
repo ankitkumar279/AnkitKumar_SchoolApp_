@@ -1,0 +1,40 @@
+﻿@model AnkitKumar_SchoolApp.Models.Student
+
+<h2>Edit Student</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="StudentId" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="StudentNumber"></label>
+        <input asp-for="StudentNumber" class="form-control" required />
+        <span asp-validation-for="StudentNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StudentFName"></label>
+        <input asp-for="StudentFName" class="form-control" required />
+        <span asp-validation-for="StudentFName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StudentLName"></label>
+        <input asp-for="StudentLName" class="form-control" required />
+        <span asp-validation-for="StudentLName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EnrolDate"></label>
+        <input asp-for="EnrolDate" type="date" class="form-control"
+               value="@(Model.EnrolDate.HasValue? Model.EnrolDate.Value.ToString("yyyy-MM-dd") : "")" />
+        <span asp-validation-for="EnrolDate" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a class="btn btn-secondary" href="@Url.Action("List", "StudentPage")">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -5,11 +5,33 @@
 <div class="text-center">
     <h1 class="display-4">Welcome AnkitKumar SchoolApp</h1>
     <br />
+
+    <!-- Button group for parallel buttons -->
+    <div class="d-flex justify-content-center gap-2">
+        <button type="button" class="btn btn-primary"
+                onclick="location.href='@Url.Action("List", "TeacherPage")'">
+            View Teacher List
+        </button>
+
+        <button type="button" class="btn btn-success"
+                onclick="location.href='@Url.Action("List", "CoursePage")'">
+            View Course List
+        </button>
+
+        <button type="button" class="btn btn-warning"
+                onclick="location.href='@Url.Action("List", "StudentPage")'">
+            View Student List
+        </button>
+
+        <button type="button" class="btn btn-danger"
+                onclick="location.href='@Url.Action("List", "StudentCoursePage")'">
+            View StudentCourse List
+        </button>
+    </div>
+
+
     <br />
-    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "TeacherPage")'">
-        View Teacher List
-    </button>
-    <br />
-    <br />
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>
+        Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+    </p>
 </div>

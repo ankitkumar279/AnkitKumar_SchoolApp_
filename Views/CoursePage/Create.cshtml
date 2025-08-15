@@ -1,0 +1,53 @@
+﻿@model AnkitKumar_SchoolApp.Models.Course
+
+@{
+    ViewData["Title"] = "Add Course";
+}
+
+<h2>Add Course</h2>
+
+<form asp-controller="CoursePage" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="CourseCode"></label>
+        <input asp-for="CourseCode" class="form-control" />
+        <span asp-validation-for="CourseCode" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CourseName"></label>
+        <input asp-for="CourseName" class="form-control" />
+        <span asp-validation-for="CourseName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TeacherId"></label>
+        <select asp-for="TeacherId" class="form-control" asp-items="ViewBag.Teachers">
+            <option value="">-- Select Teacher --</option>
+        </select>
+        <span asp-validation-for="TeacherId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" type="date" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FinishDate"></label>
+        <input asp-for="FinishDate" type="date" class="form-control" />
+        <span asp-validation-for="FinishDate" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a class="btn btn-secondary" href="@Url.Action("List", "CoursePage")">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
